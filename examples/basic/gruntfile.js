@@ -8,7 +8,6 @@
 module.exports = function( grunt ) {
 
   var joinPath  = require( 'path' ).join;
-  var resolvePath  = require( 'path' ).resolve;
   var dirname   = require( 'path' ).dirname;
   var findup    = require( 'findup-sync' );
 
@@ -16,15 +15,17 @@ module.exports = function( grunt ) {
 
   //grunt.log.writeln( 'asdf' );
   grunt.initConfig({
-    settings: {
-      some:'setting'
-    },
+
     wordpress: {
+
+      // configure client settings
       options: {
         url: "http://wordpress.dev",
         username: "admin",
         password: "password"
       },
+
+      // Create posts from array of objects
       newPosts: {
         options: {
           test: true
@@ -34,22 +35,32 @@ module.exports = function( grunt ) {
           {}
         ]
       },
+
+      // Create new terms from array of objects
       newTerms: {
         type: 'post',
         limit: 10
       },
+
+      // Uplaod media items from array of objects, referencing files
       uploadMedia: {
         src: []
       }
-    }
-  });
 
+    },
+
+    // Unrelated settings.
+    settings: {
+      some:'other-setting'
+    }
+
+  });
 
   // Default Task.
   grunt.registerTask( 'default',            [ 'wordpress' ] );
-  //grunt.registerTask( 'generate-dummy',     [ 'wordpress:dummy' ] );
-  //grunt.registerTask( 'sync-posts',         [ 'wordpress:sync' ]) ;
-  //grunt.registerTask( 'upload-media',         [ 'wordpress:media' ] );
+  grunt.registerTask( 'generate-dummy',     [ 'wordpress:newPosts' ] );
+  grunt.registerTask( 'sync-posts',         [ 'wordpress:newTerms' ]) ;
+  grunt.registerTask( 'upload-media',       [ 'wordpress:uploadMedia' ] );
 
 
 };
