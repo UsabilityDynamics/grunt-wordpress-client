@@ -4,8 +4,8 @@
  */
 function taskGroup( grunt ) {
 
-  grunt.registerTask( 'wp-remote-login', 'Login into WP site via XML-RPC.', taskGroup.someTask );
-  grunt.registerTask( 'wp-another-task', 'Login into WP site via XML-RPC.', taskGroup.anotherTask );
+  // grunt.registerTask( 'wordpress-synchronize', 'Login into WP site via XML-RPC.', taskGroup.someTask );
+  // grunt.registerTask( 'wp-another-task', 'Login into WP site via XML-RPC.', taskGroup.anotherTask );
 
 }
 

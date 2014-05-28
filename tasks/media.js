@@ -4,7 +4,7 @@
  */
 function taskGroup( grunt ) {
 
-  grunt.registerTask( 'wp-media-task', 'Login into WP site via XML-RPC.', taskGroup.someTask );
+  // grunt.registerTask( 'wordpress:media', 'Login into WP site via XML-RPC.', taskGroup.someTask );
 
 }
 

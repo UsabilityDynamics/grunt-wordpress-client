@@ -19,13 +19,6 @@ module.exports = function( grunt ) {
   //grunt.log.writeln( 'asdf' );
   grunt.initConfig({
 
-    wpClient: {
-      url: 'http://my-site.com',
-      blog: 1,
-      username: 'admin',
-      password: 'password'
-    },
-
     package: grunt.file.readJSON( 'package.json' ),
 
     // Codex.
