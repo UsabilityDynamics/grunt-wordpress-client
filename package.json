@@ -20,7 +20,7 @@
       "url": "https://github.com/potanin/grunt-wordpress-client/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "Gruntfile.js",
+  "main": "gruntfile.js",
   "engines": {
     "node": ">= 0.8.0"
   },
@@ -29,9 +29,15 @@
   },
   "devDependencies": {
     "grunt-contrib-jshint": "~0.6.0",
-    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-nodeunit": "~0.2.0",
-    "grunt": "~0.4.2"
+    "grunt": "~0.4.5",
+    "should": "~3.3.2",
+    "grunt-contrib-symlink": "~0.3.0",
+    "grunt-contrib-yuidoc": "~0.5.2",
+    "grunt-contrib-watch": "~0.6.1",
+    "mocha": "~1.19.0",
+    "load-grunt-tasks": "~0.4.0"
   },
   "peerDependencies": {
     "grunt": "~0.4.2"
@@ -45,6 +51,10 @@
     "grunt-concurrent": "~0.4.2",
     "grunt-parallelize": "~0.1.1",
     "request": "~2.27.0",
-    "async": "~0.2.9"
+    "async": "~0.2.9",
+    "debug": "~0.8.1",
+    "deep-extend": "~0.2.10",
+    "object-settings": "~0.1.2",
+    "object-emitter": "0.0.5"
   }
 }
