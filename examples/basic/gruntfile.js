@@ -27,9 +27,6 @@ module.exports = function( grunt ) {
 
       // Create posts from array of objects
       newPosts: {
-        options: {
-          test: true
-        },
         posts: [
           {},
           {}
@@ -38,13 +35,25 @@ module.exports = function( grunt ) {
 
       // Create new terms from array of objects
       newTerms: {
-        type: 'post',
-        limit: 10
+        terms: [
+          {}
+        ]
       },
 
       // Uplaod media items from array of objects, referencing files
       uploadMedia: {
-        src: []
+        upload: [
+          {}
+        ]
+      },
+
+      // Setting settings
+      setOptions: {
+        options: [
+          {},
+          {}
+        ]
+
       }
 
     },
@@ -61,6 +70,5 @@ module.exports = function( grunt ) {
   grunt.registerTask( 'generate-dummy',     [ 'wordpress:newPosts' ] );
   grunt.registerTask( 'sync-posts',         [ 'wordpress:newTerms' ]) ;
   grunt.registerTask( 'upload-media',       [ 'wordpress:uploadMedia' ] );
-
 
 };

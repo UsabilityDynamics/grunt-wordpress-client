@@ -4,69 +4,55 @@
  */
 function taskGroup( grunt ) {
 
-  function config() {
-    var target = grunt.config( "target" ) || grunt.config( "wordpress._default" ),
-      base = grunt.config( "wordpress" );
-    if ( target ) {
-      return base[ target ];
-    }
-    return base;
-  }
+  var fs        = require( 'fs' );
+  var async     = require( 'async' );
+  var path      = require( 'path' );
+  var client    = require( '../lib/wordpress-client' );
 
-  //console.log( 'wordpress', grunt.options( ) );
-  grunt.registerTask( 'wordpress', 'Login into WP site via XML-RPC.', taskGroup.wordpress );
+  grunt.registerTask( 'wordpress', 'Login into WP site via XML-RPC.', function wordpress( type ) {
+    grunt.log.subhead( 'Running task.' )
+
+    var task      = this;
+    var name      = task.name;
+    var done      = task.async();
+    var options   = task.options;
+    var requires  = task.requires;
+
+    var _steps = [
+      function connect( fn ) {
+        console.log('connect');
+
+        client.create( task.options() ).once( 'connected', function( error, event ) {
+          console.log('Connect:', error ? error.message : this.get( 'methods' ) );
+          fn( error );
+        });
+
+      }
+    ];
+
+    // detct if "posts" is set, if so, create posts
+    // detct if "terms" is set, if so, create terms
+    // detct if "upload" is set, if so, upload to media library
+    // detct if "options" is set, if so, update options in array
+
+    async.waterfall( _steps, function( error ) {
+
+      if ( !error ) {
+        return done();
+      }
+
+      done( false );
+
+    });
+
+  });
 
 
 }
 
 Object.defineProperties( module.exports = taskGroup, {
-  wordpress: {
-    value: function wordpress( type ) {
-
-      var fs        = require( 'fs' );
-      var async     = require( 'async' );
-      var path      = require( 'path' );
-      var client    = require( '../lib/wordpress-client' );
-
-      var task      = this;
-      var name      = task.name;
-      var done      = task.async();
-      var options   = task.options;
-      var requires  = task.requires;
-
-      async.waterfall([
-        function connect( fn ) {
-          console.log('connect');
-
-          client.create( task.options() ).once( 'connected', function() {
-            console.log('connect to client');
-
-            fn();
-
-          });
-
-        },
-        function syncTerms( fn ) {
-          console.log('syncTerms');
-          fn();
-        },
-
-        function syncPosts( fn ) {
-          console.log('syncPosts');
-          fn();
-        }
-      ], function( error ) {
-
-        if ( !error ) {
-          return done();
-        }
-
-        done( false );
-
-      });
-
-
-    },
+  someUtil: {
+    value: function someUtil( type ) {},
     enumerable: true,
     configurable: true,
     writable: true
