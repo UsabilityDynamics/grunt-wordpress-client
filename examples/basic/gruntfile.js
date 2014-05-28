@@ -21,9 +21,9 @@ module.exports = function( grunt ) {
     },
     wordpress: {
       options: {
-        url: "http://www.countrylife.co.uk/vendor/libraries/automattic/wordpress/xmlrpc.php",
-        username: "api",
-        password: "8MQtZqlJtDMl6BjN"
+        url: "http://wordpress.dev",
+        username: "admin",
+        password: "password"
       },
       newPosts: {
         options: {
