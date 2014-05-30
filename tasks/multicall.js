@@ -4,12 +4,7 @@
  */
 function taskGroup( grunt ) {
 
-  var fs        = require( 'fs' );
-  var async     = require( 'async' );
-  var path      = require( 'path' );
-  var client    = require( '../lib/wordpress-client' );
-
-  grunt.registerTask( 'wordpress', 'Login into WP site via XML-RPC.', function wordpress( type ) {
+  grunt.registerTask( 'wpMultiCall', 'Login into WP site via XML-RPC.', function wordpress( type ) {
     grunt.log.subhead( 'Running task.' )
 
     var task      = this;
@@ -47,12 +42,11 @@ function taskGroup( grunt ) {
 
   });
 
-
 }
 
 Object.defineProperties( module.exports = taskGroup, {
-  someUtil: {
-    value: function someUtil( type ) {},
+  client: {
+    value: require( 'wordpress-client' ),
     enumerable: true,
     configurable: true,
     writable: true

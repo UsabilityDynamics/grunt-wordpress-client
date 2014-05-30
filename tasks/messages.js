@@ -4,13 +4,11 @@
  */
 function taskGroup( grunt ) {
 
-  grunt.registerMultiTask( 'wpPost', 'WordPress RPC.', function wpPushPosts( type ) {
-    grunt.log.writeln(this.target + ': ' + this.data);
+  grunt.registerTask( 'wpPushMessages', 'WordPress RPC.', function wordpress( type ) {
 
   });
 
 }
-
 Object.defineProperties( module.exports = taskGroup, {
   client: {
     value: require( 'wordpress-client' ),

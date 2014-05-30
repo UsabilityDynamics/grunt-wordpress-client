@@ -4,8 +4,7 @@
  */
 function taskGroup( grunt ) {
 
-  grunt.registerMultiTask( 'wpPost', 'WordPress RPC.', function wpPushPosts( type ) {
-    grunt.log.writeln(this.target + ': ' + this.data);
+  grunt.registerTask( 'wpJobUpdate', 'WordPress RPC.', function wpJobUpdate( type ) {
 
   });
 
