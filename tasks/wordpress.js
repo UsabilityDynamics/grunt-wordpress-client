@@ -56,7 +56,11 @@ function multiCall( grunt ) {
 
         task.filesSrc.forEach( function eachFile( filePath ) {
 
-          // console.log( 'filePath', filePath );
+          try {
+            // console.log( 'filePath [path=%s,mime=%s]', filePath, session.common.getMime( filePath ) );
+          } catch( error ) {
+            // console.error( error );
+          }
 
           _items.push({
             methodName: 'wp.uploadFile',
