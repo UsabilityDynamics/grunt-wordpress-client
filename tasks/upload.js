@@ -2,10 +2,10 @@
  *
  * @param grunt
  */
-function multiCall( grunt ) {
+function uploadFiles( grunt ) {
 
-  grunt.registerMultiTask( 'wordpress.multiCall', 'Login into WP site via XML-RPC.', function wordpress( ) {
-    grunt.log.writeln( 'Running wp.multiCall task.' );
+  grunt.registerMultiTask( 'wordpress.uploadFile', 'WordPress RPC.', function( type ) {
+    grunt.log.writeln( 'Running wordpress:uploadFiles task.' );
 
     // Get dependencies.
     var async     = require( 'async' );
@@ -25,20 +25,13 @@ function multiCall( grunt ) {
       password: options.password
     });
 
-    var _items = [
-      {
-        methodName: 'wp.getPostTypes',
-        params: [ session.get( 'blog' ), session.get( "username" ), session.get( "password" ) ]
-      },
-      {
-        methodName: 'wp.getOptions',
-        params: [ session.get( 'blog' ), session.get( "username" ), session.get( "password" ), [ 'large_size_w', 'large_size_h' ]  ]
-      },
-      {
-        methodName: 'wp.getTaxonomies',
-        params: [ session.get( 'blog' ), session.get( "username" ), session.get( "password" ) ]
-      }
-    ];
+    _items.uploadFile({
+      name: 'sample-cat.jpg',
+      type: 'image/jpeg',
+      //overwrite: false,
+      //post_id: false,
+      bits: require( 'fs' ).readFileSync( './fixtures/sample-cat.jpg' )
+    }, fileUploaded );
 
     session.once( 'connected', function( error, event ) {
       //console.log('Connect:', error ? error.message : this.get( 'methods' ) );
@@ -60,7 +53,7 @@ function multiCall( grunt ) {
 
 }
 
-Object.defineProperties( module.exports = multiCall, {
+Object.defineProperties( module.exports = uploadFiles, {
   client: {
     value: require( 'wordpress-client' ),
     enumerable: true,
