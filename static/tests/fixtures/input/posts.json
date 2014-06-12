@@ -1,0 +1,13 @@
+[
+  {
+    "title": "Blogging in my Cabin",
+    "date": "2014-1-1",
+    "author": "Firstname Lastname",
+    "url": "posts/:title/"
+  },
+  {
+    "title": "Backbone.js",
+    "tags": ["javascript"],
+    "url": "posts/:title/"
+  }
+]
