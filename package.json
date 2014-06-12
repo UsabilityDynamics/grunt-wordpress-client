@@ -2,22 +2,19 @@
   "name": "grunt-wordpress-client",
   "description": "WordPress XML-RPC client.",
   "version": "0.1.0",
-  "homepage": "https://github.com/potanin/grunt-wordpress-client",
+  "homepage": "httpshttps://github.com/UsabilityDynamics/grunt-wordpress-client",
   "author": {
     "name": "Andy Potanin",
     "email": "andy.potanin@usabilitydynamics.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/potanin/grunt-wordpress-client.git"
-  },
-  "bugs": {
-    "url": "https://github.com/potanin/grunt-wordpress-client/issues"
+    "url": "https://github.com/UsabilityDynamics/grunt-wordpress-client"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://github.com/potanin/grunt-wordpress-client/blob/master/LICENSE-MIT"
+      "url": "https://github.com/UsabilityDynamics/grunt-wordpress-client/blob/master/LICENSE-MIT"
     }
   ],
   "main": "gruntfile.js",
