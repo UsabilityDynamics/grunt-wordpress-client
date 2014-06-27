@@ -1,25 +1,41 @@
+"use strict";
+
 /*
- * grunt-awspublish
- * https://github.com/pgherveou/awspublish
  *
- * Copyright (c) 2013 PG
+ * Copyright (c) 2014 UD
  * Licensed under the MIT license.
  */
-module.exports = function( grunt ) {
+module.exports = function (grunt) {
+  require('load-grunt-tasks')(grunt);
 
-  var joinPath  = require( 'path' ).join;
-  var findup    = require( 'findup-sync' );
+  var joinPath = require('path').join;
+  var findup = require('findup-sync');
 
-  // Automatically Load Tasks.
-  require( 'load-grunt-tasks' )( grunt, {
-    config: './package.json',
-    scope: 'devDependencies'
-  });
-
-  //grunt.log.writeln( 'asdf' );
   grunt.initConfig({
 
-    package: grunt.file.readJSON( 'package.json' ),
+    package: grunt.file.readJSON('package.json'),
+
+    wordpress: {
+      options: {
+        username: 'test',
+        password: 'test',
+        url: 'http://test.com'
+      },
+      wpNewPost: {
+        // this values will be replaced with wpClient settings keys
+        args: ['blog', 'username', 'password'],
+        src: 'test/fixtures/*.json'
+      },
+      wpUploadFile: {
+        args: ['blog', 'username', 'password'],
+        src: 'test/fixtures/img/*.png'
+      }
+    },
+
+    // Before generating any new files, remove any previously-created files.
+    clean: {
+      tmp: ['tmp']
+    },
 
     // Codex.
     markdown: {
@@ -66,13 +82,12 @@ module.exports = function( grunt ) {
         }
       }
     }
-
   });
 
   // Register Internal Tasks.
-  grunt.loadTasks( 'tasks' );
+  grunt.loadTasks('tasks');
 
   // Default Task.
-  grunt.registerTask( 'default',         [ 'mochaTest' ]);
+  grunt.registerTask('default', [ '' ]);
 
 };

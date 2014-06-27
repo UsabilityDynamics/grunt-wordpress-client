@@ -1,0 +1,26 @@
+{
+  "post_type": "post",
+  "post_status": "publish",
+  "post_title": "Test Post",
+  "post_author": 1,
+  "post_excerpt": "Summary of post",
+  "post_content": "<b>Rich-text</b> detail of of post.",
+  "post_format": "standard",
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "sticky": false,
+  "custom_fields": [
+    {
+      "key": "_source",
+      "value": "xml-rpc"
+    },
+    {
+      "key": "some-key",
+      "value": "some-value"
+    }
+  ],
+  "terms_names": {
+    "category": ["Cat"],
+    "post_tag": ["Chicago", "New Jersey"]
+  }
+}

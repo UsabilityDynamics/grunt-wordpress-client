@@ -4,7 +4,7 @@
  */
 function multiCall( grunt ) {
 
-  grunt.registerMultiTask( 'wordpress', 'General WordPress XML-RPC call.', function wordpress( ) {
+  grunt.registerMultiTask( 'wordpress1', 'General WordPress XML-RPC call.', function wordpress( ) {
     grunt.log.writeln( 'Running wordpress task.', this.target );
 
     // Get dependencies.
